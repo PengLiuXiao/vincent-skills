@@ -4,7 +4,7 @@
 
 ## 唯一发布来源
 
-- `dist/` 只能由私有仓库的 `tools/publish-public.sh` 生成和覆盖，不得手工编辑。
+- `dist/`、根目录的 `*.skill`、`MANIFEST.md` 和 `SHA256SUMS` 只能由私有仓库的 `tools/publish-public.sh` 生成和覆盖，不得手工编辑。
 - 发布方向固定为私有 `skill_builder` → 本仓库，不做反向同步。
 - 发布器完成打包、结构检查和泄漏检查后只更新工作树，不自动 commit 或 push。
 - 提交前必须检查 `git diff`；`git push` 等待 Vincent 明确执行或授权。
@@ -17,15 +17,15 @@ vincent-skills/
 ├── AGENTS.md -> CLAUDE.md
 ├── LICENSE
 ├── README.md
+├── MANIFEST.md
+├── SHA256SUMS
+├── <skill-name>.skill
 └── dist/
-    ├── MANIFEST.md
-    ├── SHA256SUMS
-    ├── <skill-name>/
-    └── <skill-name>.skill
+    └── <skill-name>/
 ```
 
 - `<skill-name>/` 是可浏览、可直接安装的运行期目录。
-- `<skill-name>.skill` 是同内容的发布压缩包。
+- 根目录的 `<skill-name>.skill` 是同内容的发布压缩包，便于直接下载。
 - `MANIFEST.md` 记录来源提交和本次技能清单；`SHA256SUMS` 用于校验压缩包。
 
 ## 公开边界
