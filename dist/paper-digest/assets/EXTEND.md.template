@@ -1,0 +1,16 @@
+---
+# paper-digest 可选配置。项目级 .paper-digest/EXTEND.md 优先于用户级
+# ~/.paper-digest/EXTEND.md。没有配置时先从对话与工作区推断，不强制首次设置。
+version: 2
+
+profile:
+  interests: []                # 兴趣领域，如 ["LLM 推理优化", "RAG"]
+  background: ""              # 背景水平与经验
+  current_goals: []            # 当前目标，如 ["评估 Agent 工作流"]
+  output_language: zh          # 输出语言，默认中文
+
+preferences:
+  max_auto_depth: deep-read    # 自动选档上限：overview / skim / deep-read
+  visual_density: auto         # auto / minimal / balanced / rich；均非配额
+  output_dir: ./outputs        # 相对路径按宿主工作目录解析
+---

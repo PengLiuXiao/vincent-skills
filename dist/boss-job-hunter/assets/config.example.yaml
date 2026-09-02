@@ -1,0 +1,50 @@
+# 复制到你的工作目录（默认 ~/boss-job-hunter/）改名为 config.yaml 再填。
+# 真实 token、个人信息永远不要提交进 git。
+
+# —— 工作目录内路径（相对本文件所在目录）——
+profile: profile.md          # 你的画像与简历事实源（从 assets/profile.template.md 复制填写）
+out_dir: out                 # 采集 JSON 与小结输出目录
+
+# —— 飞书（首跑 bootstrap 自动建表后回填，见 references/lark-tables.md）——
+lark:
+  base_token: <your_base_token>
+  tables:
+    main:      { name: 投递跟踪, id: tblXXX }
+    favorites: { name: 收藏岗位, id: tblXXX }
+
+# —— 采集节奏（风控预算，宁少勿贪）——
+collection:
+  details_per_round: 15      # 单轮最多取多少条 JD 详情
+  daily_target: 0            # >0 时：当日写入达到该数 → 建议停止采集（风控安全阀）
+
+# —— 评分默认值（实战验证过的一套；含义见 references/scoring.md）——
+scoring:
+  weights:                   # 维度权重合计应为 100
+    role_domain: 25
+    skills: 25               # 技能命中再高也不能单独决定 A
+    years: 15
+    education: 10
+    location: 10
+    salary: 10
+    prefs: 5
+  penalties:
+    salary_no_overlap: -15   # 薪资完全无交集强扣分
+    education_gap_large: -10 # 学历差距明显扣分
+  grades:
+    A_min: 90                # 90–100 强匹配
+    B_min: 60                # 60–89 有机会；<60 = C 不推荐
+  hard_caps:                 # 硬性要求防误判封顶
+    one_fail_max_score: 79   # 任 1 项硬性未过 → 最高 B
+    two_fail_max_score: 59   # ≥2 项 → 强制 C
+
+# —— 过滤与偏好（名单留空则不启用；机制见 references/lark-tables.md §去重）——
+filters:
+  excluded_companies: []     # 命中即跳过该公司全部岗位（含外包/猎头代发主体）
+  excluded_role_types: []    # 例：[客服, 外包驻场]
+keywords:
+  pool: []                   # hunt 轮搜索词池；例：[新媒体运营, 内容增长]
+
+# —— 打招呼语（格式与变体唯一来源是 references/greeting.md，这里只放个人素材开关）——
+greeting:
+  language: zh                # zh / en / auto
+  append_portfolio: true      # profile 配了 portfolio 就必须带邀请语+链接

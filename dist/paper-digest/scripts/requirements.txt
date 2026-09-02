@@ -1,0 +1,4 @@
+pypdf>=4.0
+# pdftotext 不是 pip 包，而是 poppler 套件提供的系统二进制（macOS: brew install poppler；
+# Debian/Ubuntu: apt install poppler-utils）。extract.py 把它作为 pypdf 之后的第二兜底，
+# 无需在此声明——这里只列 Python 软依赖。
