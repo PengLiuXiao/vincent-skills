@@ -15,6 +15,7 @@
 vincent-skills/
 ├── CLAUDE.md
 ├── AGENTS.md -> CLAUDE.md
+├── LICENSE
 ├── README.md
 └── dist/
     ├── MANIFEST.md
@@ -30,6 +31,10 @@ vincent-skills/
 ## 公开边界
 
 这里的所有内容都按公开信息处理。禁止加入密钥、token、密码、私人素材、无再分发权的资源，以及 `tests/`、`evals/`、项目级 `docs/`、开发报告、`.env`、缓存和 Git 元数据。
+
+## 许可协议
+
+本仓库全部公开内容采用根目录 `LICENSE` 中的 MIT License，版权人为 Vincent Liu。
 
 ## CLAUDE.md / AGENTS.md 同源
 
